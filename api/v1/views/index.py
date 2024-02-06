@@ -21,7 +21,7 @@ def hbnbStatus():
     return jsonify({"status": "OK"})
 
 
-''''@app_views.route('/stats', strict_slashes=False)
+@app_views.route('/stats', strict_slashes=False)
 def hbnbStats():
     """hbnbStats"""
     return_dict = {}
@@ -30,4 +30,4 @@ def hbnbStats():
     return jsonify(return_dict)
 
 if __name__ == "__main__":
-    pass'''
+    pass

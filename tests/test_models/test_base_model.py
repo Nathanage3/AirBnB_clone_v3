@@ -8,9 +8,6 @@ import pep8 as pycodestyle
 import time
 import unittest
 from unittest import mock
-
-
-#sys.path.append(os.path.abspath('.'))
 from models.base_model import BaseModel
 
 module_doc = BaseModel.__doc__

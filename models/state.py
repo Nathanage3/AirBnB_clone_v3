@@ -44,11 +44,12 @@ class State(BaseModel, Base):
     else:
         name = ""
 
-    def to_dict(self):
+    def to_dict(self, save_to_disk=False):
         """ Converts State instance to a dictionary """
-        state_dict = super().to_dict()
+        state_dict = super().to_dict(save_to_disk=save_to_disk)
         if 'name' not in state_dict and hasattr(self, 'name'):
             state_dict['name'] = self.name
+        state_dict.pop('_sa_instance_state', None)
         return state_dict
 
     def __init__(self, *args, **kwargs):

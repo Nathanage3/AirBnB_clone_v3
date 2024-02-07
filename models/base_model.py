@@ -64,6 +64,7 @@ class BaseModel:
         result['created_at'] = result['created_at'].isoformat()
         result['updated_at'] = result['updated_at'].isoformat()
         result['__class__'] = self.__class__.__name__
+        result.pop('_sa_instance_state', None)
         if save_to_disk:
             # Handle additional logic when saving to disk
             pass

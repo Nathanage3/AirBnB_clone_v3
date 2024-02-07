@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Test BaseModel for expected behavior and documentation"""  # Replace with the actual path
+"""Test BaseModel for expected behavior
+   and documentation
+"""  # Replace with the actual path
 import sys
 import os
 from datetime import datetime
@@ -20,15 +22,16 @@ class TestBaseModelDocs(unittest.TestCase):
     def setUpClass(self):
         """Set up for docstring tests"""
         self.base_funcs = inspect.getmembers(BaseModel, inspect.isfunction)
-    
+
     def test_pep8_conformance(self):
         """Test that models/base_model.py conforms to PEP8."""
         expected_errors = 0  # Initialize expected_errors
-        for path in ['models/base_model.py', 'tests/test_models/test_base_model.py']:
+        for path in ['models/base_model.py',
+                     'tests/test_models/test_base_model.py']:
             with self.subTest(path=path):
                 errors = pycodestyle.Checker(path).check_all()
                 expected_errors += errors  # Accumulate errors
-        self.assertEqual(expected_errors, errors)    
+        self.assertEqual(expected_errors, errors)   
 
 
     def test_module_docstring(self):
@@ -100,7 +103,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(inst1.created_at, inst2.created_at)
         self.assertNotEqual(inst1.updated_at, inst2.updated_at)
 
-
     def test_uuid(self):
         """Test that id is a valid uuid"""
         inst1 = BaseModel()
@@ -163,8 +165,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(old_created_at, new_created_at)
         self.assertTrue(mock_storage.new.called)
         self.assertTrue(mock_storage.save.called)
-        
-
-
+ 
 if __name__ == "__main__":
     unittest.main()

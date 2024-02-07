@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Database storage engine using SQLAlchemy with a mysql+mysqldb database
-connection.
-"""
+"""Database storage engine using SQLAlchemy with a mysql+mysqldb database connection."""
 
 import os
 from models.base_model import Base
@@ -13,6 +11,7 @@ from models.review import Review
 from models.user import User
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
+
 name2class = {
     'Amenity': Amenity,
     'City': City,
@@ -78,7 +77,7 @@ class DBStorage:
             self.__session.delete(obj)
 
     def close(self):
-        """Dispose of current session if active"""
+        """Dispose of the current session if active"""
         self.__session.remove()
 
     def get(self, cls, id):
@@ -92,7 +91,7 @@ class DBStorage:
             return None
 
     def count(self, cls=None):
-        """Count number of objects in storage"""
+        """Count the number of objects in storage"""
         total = 0
         if type(cls) == str and cls in name2class:
             cls = name2class[cls]

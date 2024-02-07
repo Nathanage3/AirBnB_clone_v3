@@ -34,6 +34,7 @@ class State(BaseModel, Base):
             return city_list
 '''
 
+
 class State(BaseModel, Base):
     """ Representation of state """
     if models.storage_t == "db":
@@ -64,3 +65,4 @@ class State(BaseModel, Base):
                 if city.state_id == self.id:
                     city_list.append(city)
             return city_list
+        

@@ -31,8 +31,7 @@ class TestBaseModelDocs(unittest.TestCase):
             with self.subTest(path=path):
                 errors = pycodestyle.Checker(path).check_all()
                 expected_errors += errors  # Accumulate errors
-        self.assertEqual(expected_errors, errors)   
-
+        self.assertEqual(expected_errors, errors)
 
     def test_module_docstring(self):
         """Test for the existence of module docstring"""
@@ -165,6 +164,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(old_created_at, new_created_at)
         self.assertTrue(mock_storage.new.called)
         self.assertTrue(mock_storage.save.called)
- 
+
 if __name__ == "__main__":
     unittest.main()
